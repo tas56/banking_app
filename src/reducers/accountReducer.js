@@ -1,8 +1,7 @@
 import { ADD_ACCOUNT, FETCH_ACCOUNT } from "../actions/types";
 
 const DEFAULT_STATE = {
-    items: [],
-    item: {}
+    accounts: [],
 }
 
 export default function (state = DEFAULT_STATE, action) {
@@ -10,7 +9,12 @@ export default function (state = DEFAULT_STATE, action) {
         case FETCH_ACCOUNT:
             return {
                 ...state,
-                items: action.payload
+                accounts: action.payload
+            }
+        case ADD_ACCOUNT:
+            return {
+                ...state,
+                accounts: state.accounts.push(action.payload)
             }
         default:
             return state;

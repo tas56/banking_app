@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import {FaMinus,FaPlus} from "react-icons/all";
 import Container from 'react-bootstrap/Container'
 
 import Header from './Header/Header'
-import AccountCard from './Accounts';
+import Accounts from './Accounts';
+import Transactions from "./Transactions";
 
 import store from "../store";
 
 const App = () => {
-
 
     return (
         <Provider store={store}>
@@ -20,8 +18,9 @@ const App = () => {
                     <Container>
                         <div>
                             <Route path="/" exact render={ () =>
-                                <AccountCard /> } />
-                            <Route path="/Transactions" />
+                                <Accounts /> } />
+                            <Route path="/Transactions" render={ () =>
+                                <Transactions /> } />
                         </div>
                     </Container>
                 </BrowserRouter>

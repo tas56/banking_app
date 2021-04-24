@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 
-import Card from 'react-bootstrap/Card';
 import {FaMinus, FaPlus} from "react-icons/all";
 
 import { fetchAccounts } from "../actions/accountActions";
@@ -10,16 +9,25 @@ import AddAccount from "./AddAccount";
 const Accounts = (props) => {
 
     const [expand, setExpand] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        props.fetchAccounts();
-    }, []);
+
+        dispatch(fetchAccounts());
+
+    }, [ ]);
 
     const accountItems = props.accounts.map(account => (
-        <Card className={"col-md-3 m-2"} key={account.id}>
-            <Card.Title>Account Name: {account.name}</Card.Title>
-            <Card.Body className={"w-100 float-right"}>Balance: {account.balance}</Card.Body>
-        </Card>
+        <div className="row d-flex">
+            <div className={"col-md-3"}>
+            <div className="card m-2">
+                    <div className="card-body">
+                        <h5 className="card-title">Account Name: {account.name}</h5>
+                        <p className="card-text">Balance: ${account.balance}</p>
+                    </div>
+            </div>
+            </div>
+        </div>
     ))
 
     return (
@@ -46,7 +54,7 @@ const Accounts = (props) => {
 }
 
 const mapStateToProps = state => ({
-    accounts: state.accounts.items
-})
+    accounts: state.accounts.accounts,
+});
 
 export default connect(mapStateToProps, { fetchAccounts })(Accounts);

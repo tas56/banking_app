@@ -1,19 +1,23 @@
 import {useState} from 'react'
+import {connect, useDispatch} from "react-redux";
+import {addAccount} from "../actions/accountActions";
 
-const AddTask = (props) => {
+const AddAccount = (props) => {
 
     const [name, setName] = useState('')
     const [deposit, setDeposit] = useState('')
 
+    const dispatch = useDispatch();
+
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if(!name) {
-            alert('Please add a name')
-            return
+        const account = {
+            name: name,
+            balance: deposit
         }
 
-        props.addAccount({name,deposit})
+        dispatch(addAccount(account));
 
         setName('')
         setDeposit('')
@@ -27,21 +31,20 @@ const AddTask = (props) => {
                     <div className={'form-group'}>
                         <label>Account Name</label>
                         <input type={'text'}
-                               placeholder={'Add Task'}
+                               placeholder={'Account name...'}
                                value={name}
                                className={'form-control'}
                                onChange={(e) => setName(e.target.value)} />
                     </div>
 
                     <div className={'form-group'}>
-                        <label>Deposit</label>
+                        <label>Initial Deposit</label>
                         <input type={'text'}
-                               placeholder={'Add Description'}
+                               placeholder={'Add deposit...'}
                                value={deposit}
                                className={'form-control'}
                                onChange={(e) => setDeposit(e.target.value)} />
                     </div>
-
 
                     <input className={'btn btn-primary float-right'} type={'submit'} value={'Save Account'} />
                 </form>
@@ -50,4 +53,5 @@ const AddTask = (props) => {
     )
 }
 
-export default AddTask;
+
+export default connect(null, { addAccount })(AddAccount);
