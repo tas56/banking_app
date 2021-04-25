@@ -1,34 +1,19 @@
 {
   "accounts": [
     {
-      "name": "Account 1",
-      "balance": 100,
-      "id": 1
-    },
-    {
-      "name": "Account 2",
-      "balance": 100,
-      "id": 2
-    },
-    {
       "name": "Account 3",
       "balance": 100,
       "id": 3
     },
     {
-      "name": "Account 4",
-      "balance": 100,
-      "id": 4
-    },
-    {
-      "name": "Thomas",
-      "balance": "1234",
-      "id": 5
-    },
-    {
-      "name": "Thomas",
-      "balance": "1234",
+      "name": "James",
+      "balance": "245",
       "id": 6
+    },
+    {
+      "name": "Thomas",
+      "balance": "123",
+      "id": 7
     }
   ],
   "transactions": [

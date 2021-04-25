@@ -1,4 +1,4 @@
-import { ADD_ACCOUNT, FETCH_ACCOUNT } from "../actions/types";
+import { ADD_ACCOUNT, FETCH_ACCOUNT, DELETE_ACCOUNT } from "../actions/types";
 
 const DEFAULT_STATE = {
     accounts: [],
@@ -16,6 +16,11 @@ export default function (state = DEFAULT_STATE, action) {
                 ...state,
                 accounts: state.accounts.push(action.payload)
             }
+        case DELETE_ACCOUNT:
+            return {
+            ...state,
+            accounts: action.payload
+        }
         default:
             return state;
     }

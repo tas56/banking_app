@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import {connect, useDispatch} from "react-redux";
-import {addAccount} from "../actions/accountActions";
+import {updateAccount} from "../actions/accountActions";
 
 const AddBalance = (props) => {
 
-    const [balance, setBalance] = useState('')
     const [deposit, setDeposit] = useState('')
+
 
     const dispatch = useDispatch();
 
@@ -13,14 +13,14 @@ const AddBalance = (props) => {
         e.preventDefault();
 
         const account = {
-            name: name,
+            name: props.accounts.name,
             balance: deposit
         }
 
-        dispatch(addTransaction(account));
+        dispatch(updateAccount(account));
 
-        setBalance('')
         setDeposit('')
+
     }
 
     return (
@@ -29,24 +29,14 @@ const AddBalance = (props) => {
                 <form className={''} onSubmit={onSubmit}>
 
                     <div className={'form-group'}>
-                        <label>Account Name</label>
                         <input type={'text'}
-                               placeholder={'Add Task'}
-                               value={name}
-                               className={'form-control'}
-                               onChange={(e) => setName(e.target.value)} />
-                    </div>
-
-                    <div className={'form-group'}>
-                        <label>Deposit</label>
-                        <input type={'text'}
-                               placeholder={'Add Description'}
+                               placeholder={'Deposit Amount...'}
                                value={deposit}
                                className={'form-control'}
                                onChange={(e) => setDeposit(e.target.value)} />
                     </div>
 
-                    <input className={'btn btn-primary float-right'} type={'submit'} value={'Save Account'} />
+                    <input className={'btn btn-success float-right'} type={'submit'} value={'Deposit'} />
                 </form>
             </div>
         </div>
@@ -54,4 +44,4 @@ const AddBalance = (props) => {
 }
 
 
-export default connect(null, { addAccount })(AddAccount);
+export default connect(null, { updateAccount })(AddBalance);

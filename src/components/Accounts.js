@@ -1,14 +1,19 @@
 import { useState, useEffect } from 'react';
 import { connect, useDispatch } from "react-redux";
+import { Link } from 'react-router-dom';
 
-import {FaMinus, FaPlus} from "react-icons/all";
+import {FaMinus, FaPlus, FaEdit, FaTimes, FaArrowRight } from "react-icons/all";
 
 import { fetchAccounts } from "../actions/accountActions";
 import AddAccount from "./AddAccount";
+import AccountItem from "./AccountItem";
+import AddBalance from "./AddBalance";
+import Withdrawal from "./Withdrawal";
 
 const Accounts = (props) => {
 
     const [expand, setExpand] = useState(false);
+    const [expandDeposit, setExpandDeposit] = useState(false)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -17,22 +22,13 @@ const Accounts = (props) => {
 
     }, [ ]);
 
-    const accountItems = props.accounts.map(account => (
-        <div className="row d-flex">
-            <div className={"col-md-3"}>
-            <div className="card m-2">
-                    <div className="card-body">
-                        <h5 className="card-title">Account Name: {account.name}</h5>
-                        <p className="card-text">Balance: ${account.balance}</p>
-                    </div>
-            </div>
-            </div>
-        </div>
-    ))
+    const accountItems = props.accounts.map( (account) => {
+       return <AccountItem account={account} />
+    });
 
     return (
-        <div>
-            <div className="w-100 border-bottom mb-3">
+        <div className="w-100">
+            <div className="w-100 border-bottom border-success mb-3">
                 <p onClick={() => setExpand(!expand)}
                    style={{cursor:'pointer'}}> Add Account
                     {expand ? <FaMinus data-toggle="tooltip"
@@ -54,7 +50,7 @@ const Accounts = (props) => {
 }
 
 const mapStateToProps = state => ({
-    accounts: state.accounts.accounts,
+    accounts: state.accounts.accounts
 });
 
 export default connect(mapStateToProps, { fetchAccounts })(Accounts);
