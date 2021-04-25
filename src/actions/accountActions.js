@@ -1,4 +1,4 @@
-import { ADD_ACCOUNT, FETCH_ACCOUNT, DELETE_ACCOUNT } from "./types";
+import { ADD_ACCOUNT, FETCH_ACCOUNT, DELETE_ACCOUNT, UPDATE_ACCOUNT } from "./types";
 import axios from "axios";
 
 export const fetchAccounts = () => (dispatch) => {
@@ -13,6 +13,7 @@ export const fetchAccounts = () => (dispatch) => {
 }
 
 export const addAccount = (account) => (dispatch) => {
+
     fetch('http://localhost:5002/accounts', {
         method: 'POST',
         headers: {
@@ -23,7 +24,8 @@ export const addAccount = (account) => (dispatch) => {
         type: ADD_ACCOUNT,
         payload: account
     }))
-   // window.location.href = "http://localhost:3000";
+   window.location.href = "http://localhost:3000";
+
 }
 
 export const deleteAccount = (accountID) => (dispatch) => {
@@ -35,19 +37,23 @@ export const deleteAccount = (accountID) => (dispatch) => {
             type: DELETE_ACCOUNT,
             payload: account
         }))
- //   window.location.href = "http://localhost:3000";
+   window.location.href = "http://localhost:3000";
 
 }
 
-export const updateAccount = (accountID) => (dispatch) => {
+export const updateAccount = (account) => (dispatch) => {
 
-    fetch(`http://localhost:5002/accounts/${accountID}`, {
-        method: 'PUT'
+    fetch(`http://localhost:5002/accounts/${account.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8' // Indicates the content
+        },
+        body: JSON.stringify(account)
     })
         .then(account => dispatch({
-            type: DELETE_ACCOUNT,
+            type: UPDATE_ACCOUNT,
             payload: account
         }))
-    //   window.location.href = "http://localhost:3000";
+    window.location.href = "http://localhost:3000";
 
 }

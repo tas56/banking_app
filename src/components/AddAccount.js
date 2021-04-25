@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {connect, useDispatch} from "react-redux";
+import {connect} from "react-redux";
 import {addAccount} from "../actions/accountActions";
 
 const AddAccount = (props) => {
@@ -7,7 +7,6 @@ const AddAccount = (props) => {
     const [name, setName] = useState('')
     const [deposit, setDeposit] = useState('')
 
-    const dispatch = useDispatch();
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -17,7 +16,7 @@ const AddAccount = (props) => {
             balance: deposit
         }
 
-        dispatch(addAccount(account));
+        props.addAccount(account);
 
         setName('')
         setDeposit('')
@@ -46,7 +45,7 @@ const AddAccount = (props) => {
                                onChange={(e) => setDeposit(e.target.value)} />
                     </div>
 
-                    <input className={'btn btn-primary float-right'} type={'submit'} value={'Save Account'} />
+                    <input className={'btn btn-success float-right'} type={'submit'} value={'Save Account'} />
                 </form>
             </div>
         </div>
