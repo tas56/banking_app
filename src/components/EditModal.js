@@ -1,20 +1,70 @@
 import Modal from "react-bootstrap/Modal";
+import { useState } from "react";
+
+import { updateAccount } from "../actions/accountActions";
+import { connect } from "react-redux";
 
 const EditModal = (props) => {
+
+    const [name, setName] = useState('')
+    const [deposit, setDeposit] = useState('')
+
+    const onClick = () => {
+
+        let editName =  name != null ? name : props.account.name;
+        let editBalance =  deposit != null ? deposit : props.account.balance;
+
+        const account = {
+            name: editName,
+            balance: editBalance,
+            id: props.account.id
+        }
+
+        props.updateAccount(account);
+
+        setName('')
+        setDeposit('')
+    }
+
     return (
         <div>
             <Modal show={props.isOpen} onHide={props.hideModal}>
                 <Modal.Header>
-                    <Modal.Title>Hi</Modal.Title>
+                    <Modal.Title>Edit Account</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>The body</Modal.Body>
+                <Modal.Body>
+
+                    <div className={'form-group'}>
+                        <label>Current name: <b>{props.account.name}</b></label>
+                        <input type={'text'}
+                               placeholder={'Edit name...'}
+                               value={name}
+                               className={'form-control'}
+                               onChange={(e) => setName(e.target.value)} />
+                    </div>
+
+                    <div className={'form-group'}>
+                        <label>Current balance:
+                            <b><span className={props.account.balance >= 0 ? 'text-success': 'text-danger'}>
+                                ${props.account.balance}</span></b>
+                        </label>
+                        <input type={'text'}
+                               placeholder={'Edit balance...'}
+                               value={deposit}
+                               className={'form-control'}
+                               onChange={(e) => setDeposit(e.target.value)} />
+                    </div>
+
+                </Modal.Body>
                 <Modal.Footer>
-                    <button onClick={props.hideModal}>Cancel</button>
-                    <button>Save</button>
+                    <button className="btn btn-danger"
+                            onClick={props.hideModal}>Cancel</button>
+                    <button className="btn btn-success"
+                            onClick={ () => onClick()}>Save</button>
                 </Modal.Footer>
             </Modal>
         </div>
     )
 }
 
-export default EditModal;
+export default connect(null, { updateAccount })(EditModal);

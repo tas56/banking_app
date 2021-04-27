@@ -23,7 +23,8 @@ const AccountItem = (props) => {
         <div className="col-lg-3 col-md-4 col-sm-6">
             <EditModal isOpen={isOpen}
                        hideModal={hideModal}
-                       showModal={showModal} />
+                       showModal={showModal}
+                       account={props.account} />
             <div className={ props.account.balance >= 0 ?
                             'card mt-3 border border-success':'card mt-3 border-left border-danger'} >
                 <div className="card-body">

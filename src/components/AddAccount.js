@@ -1,7 +1,6 @@
 import {useState} from 'react'
 import {connect} from "react-redux";
 import { addAccount } from "../actions/accountActions";
-import { addTransaction } from "../actions/transactionsActions";
 
 const AddAccount = (props) => {
 
@@ -17,14 +16,7 @@ const AddAccount = (props) => {
             balance: deposit
         }
 
-        const transaction = {
-            amount: deposit,
-            date: Date.now(),
-            account_id: 1,
-        }
-
-        props.addAccount(account);
-        props.addTransaction(transaction);
+        props.updateAccount(account, props.account.id);
 
         setName('')
         setDeposit('')
@@ -61,4 +53,4 @@ const AddAccount = (props) => {
 }
 
 
-export default connect(null, { addAccount, addTransaction })(AddAccount);
+export default connect(null, { addAccount })(AddAccount);
