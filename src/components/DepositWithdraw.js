@@ -1,8 +1,9 @@
 import {useState} from 'react'
 import {connect} from "react-redux";
 import {updateAccount} from "../actions/accountActions";
+import {addTransaction} from "../actions/transactionsActions";
 
-const Deposit = (props) => {
+const DepositWithdraw = (props) => {
 
     const [amount, setAmount] = useState('');
 
@@ -71,4 +72,4 @@ const Deposit = (props) => {
 }
 
 
-export default connect(null, { updateAccount })(Deposit);
+export default connect(null, { updateAccount })(DepositWithdraw);

@@ -47,7 +47,8 @@ const Accounts = (props) => {
 }
 
 const mapStateToProps = state => ({
-    accounts: state.accounts.accounts
+    accounts: state.accounts.accounts,
+    transactions: state.transactions.transactions
 });
 
 export default connect(mapStateToProps, { fetchAccounts })(Accounts);

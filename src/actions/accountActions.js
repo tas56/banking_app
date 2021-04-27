@@ -1,5 +1,4 @@
 import { ADD_ACCOUNT, FETCH_ACCOUNT, DELETE_ACCOUNT, UPDATE_ACCOUNT } from "./types";
-import axios from "axios";
 
 export const fetchAccounts = () => (dispatch) => {
 
@@ -46,7 +45,7 @@ export const updateAccount = (account) => (dispatch) => {
     fetch(`http://localhost:5002/accounts/${account.id}`, {
         method: 'PUT',
         headers: {
-            'Content-type': 'application/json; charset=UTF-8' // Indicates the content
+            'Content-type': 'application/json; charset=UTF-8'
         },
         body: JSON.stringify(account)
     })

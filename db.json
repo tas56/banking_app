@@ -1,19 +1,9 @@
 {
   "accounts": [
     {
-      "id": 6,
-      "name": "James",
-      "balance": "370.00"
-    },
-    {
-      "id": 7,
-      "name": "Thomas",
-      "balance": "23.00"
-    },
-    {
       "id": 8,
       "name": "Thomas Semiz",
-      "balance": "-10.00"
+      "balance": "-100.50"
     },
     {
       "name": "Rachel Gallucio",
@@ -24,11 +14,33 @@
       "name": "John Smith",
       "balance": "100",
       "id": 10
+    },
+    {
+      "name": "Jimmy Steve",
+      "balance": "500",
+      "id": 11
+    },
+    {
+      "name": "Tyler Sanchez",
+      "balance": "300.27",
+      "id": 12
+    },
+    {
+      "name": "Thomas Semiz",
+      "balance": "300",
+      "id": 13
+    },
+    {
+      "name": "Thomas",
+      "balance": "123",
+      "id": 14
     }
   ],
   "transactions": [
     {
       "amount": 100,
+      "account_id": 1,
+      "date": "",
       "id": 1
     }
   ]

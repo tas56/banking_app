@@ -2,6 +2,7 @@ import { ADD_ACCOUNT, FETCH_ACCOUNT, DELETE_ACCOUNT, UPDATE_ACCOUNT } from "../a
 
 const DEFAULT_STATE = {
     accounts: [],
+    transactions: []
 }
 
 export default function (state = DEFAULT_STATE, action) {
@@ -14,7 +15,8 @@ export default function (state = DEFAULT_STATE, action) {
         case ADD_ACCOUNT:
             return {
                 ...state,
-                accounts: state.accounts.push(action.payload)
+                accounts: state.accounts.unshift(action.payload),
+
             }
         case DELETE_ACCOUNT:
             return {

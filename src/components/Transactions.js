@@ -5,26 +5,25 @@ import { fetchTransactions } from "../actions/transactionsActions";
 
 const Transactions = (props) => {
 
-    const dispatch = useDispatch();
-
     useEffect(() => {
 
-        dispatch(fetchTransactions());
+        props.fetchTransactions();
 
     }, [ ]);
 
-    const accountItems = props.transactions.map(transaction => (
-        <div className="list-group">
-            <a href="#" className="list-group-item list-group-item-action">
-               Amount: {transaction.amount}
-            </a>
-        </div>
+    const transactionItems = props.transactions.map(transaction => (
+            <li className="list-group-item list-group-item-action">
+               Transaction ID: {transaction.id} |
+                Amount: {parseFloat(transaction.amount).toFixed(2)}
+            </li>
     ))
 
     return (
         <div>
             <h1>Transactions</h1>
-            {accountItems}
+            <ul className="list-group">
+                {transactionItems}
+            </ul>
         </div>
     )
 

@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, ADD_BALANCE, WITHDRAWAL } from "../actions/types";
+import { FETCH_TRANSACTIONS, ADD_TRANSACTION, ADD_ACCOUNT } from "../actions/types";
 
 const DEFAULT_STATE = {
     transactions: [],
@@ -12,15 +12,10 @@ export default function (state = DEFAULT_STATE, action) {
                 ...state,
                 transactions: action.payload
             }
-        case ADD_BALANCE:
+        case ADD_ACCOUNT:
             return {
                 ...state,
-                transactions: action.payload
-            }
-        case WITHDRAWAL:
-            return {
-                ...state,
-                transactions: action.payload
+                transactions: state.transactions.unshift(action.payload)
             }
         default:
             return state;
