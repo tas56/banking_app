@@ -1,18 +1,13 @@
 {
   "accounts": [
     {
-      "id": 9,
-      "name": "Rachel Gallucio",
-      "balance": "380.00"
-    },
-    {
-      "name": "John Smith",
-      "balance": "100",
+      "name": "John",
+      "balance": "500",
       "id": 10
     },
     {
       "name": "Jimmy Steve",
-      "balance": "500",
+      "balance": "-200.00",
       "id": 11
     },
     {

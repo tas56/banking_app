@@ -11,8 +11,8 @@ const EditModal = (props) => {
 
     const onClick = () => {
 
-        let editName =  name != null ? name : props.account.name;
-        let editBalance =  deposit != null ? deposit : props.account.balance;
+        let editName =  name !== '' ? name : props.account.name;
+        let editBalance =  deposit !== '' ? deposit : props.account.balance;
 
         const account = {
             name: editName,
