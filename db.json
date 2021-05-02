@@ -1,32 +1,83 @@
 {
   "accounts": [
     {
-      "name": "John",
-      "balance": "500",
-      "id": 10
+      "id": 15,
+      "name": "Jake",
+      "balance": "-137.00"
     },
     {
-      "name": "Jimmy Steve",
-      "balance": "-200.00",
-      "id": 11
+      "id": 16,
+      "name": "Jake",
+      "balance": "-100.00"
     },
     {
-      "id": 12,
-      "name": "Tyler Sanchez",
-      "balance": "-199.73"
+      "id": 17,
+      "name": "Thomas",
+      "balance": "230.00"
+    },
+    {
+      "id": 18,
+      "name": "Jake",
+      "balance": "200.00"
     },
     {
       "name": "Thomas Semiz",
       "balance": "300",
-      "id": 13
+      "id": 19
+    },
+    {
+      "name": "Rachel Galluccio",
+      "balance": "500",
+      "id": 20
+    },
+    {
+      "name": "Thomas",
+      "balance": "300",
+      "id": 22
     }
   ],
   "transactions": [
     {
-      "amount": 100,
-      "account_id": 1,
-      "date": "",
+      "account_id": 15,
+      "amount": "5000.00",
+      "date": 1619661902098,
+      "type": "withdrawal",
       "id": 1
+    },
+    {
+      "account_id": 15,
+      "amount": "500.00",
+      "date": 1619662372858,
+      "type": "deposit",
+      "id": 2
+    },
+    {
+      "account_id": 15,
+      "amount": "500.00",
+      "date": 1619662389322,
+      "type": "deposit",
+      "id": 3
+    },
+    {
+      "account_id": 15,
+      "amount": "5000.00",
+      "date": 1619669163805,
+      "type": "withdrawal",
+      "id": 4
+    },
+    {
+      "account_id": 15,
+      "amount": "300.00",
+      "date": 1619672489384,
+      "type": "deposit",
+      "id": 5
+    },
+    {
+      "account_id": 16,
+      "amount": "500.00",
+      "date": "Sun May 02 2021 18:31:04 GMT-0400 (Eastern Daylight Time)",
+      "type": "withdrawal",
+      "id": 6
     }
   ]
 }

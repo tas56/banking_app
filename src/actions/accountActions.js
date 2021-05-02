@@ -19,24 +19,24 @@ export const addAccount = (account) => (dispatch) => {
             'content-type': 'application/json'
         },
         body: JSON.stringify(account)
-    }).then(account => dispatch({
+    }).then(response => dispatch({
         type: ADD_ACCOUNT,
-        payload: account
+        payload: account,
+        response
     }))
-   window.location.href = "http://localhost:3000";
 
 }
 
-export const deleteAccount = (accountID) => (dispatch) => {
+export const deleteAccount = (accounts, accountID) => (dispatch) => {
 
     fetch(`http://localhost:5002/accounts/${accountID}`, {
         method: 'DELETE'
     })
-        .then(account => dispatch({
+        .then(response => dispatch({
             type: DELETE_ACCOUNT,
-            payload: account
+            payload: accounts,
+            response
         }))
-   window.location.href = "http://localhost:3000";
 
 }
 
@@ -49,10 +49,10 @@ export const updateAccount = (account) => (dispatch) => {
         },
         body: JSON.stringify(account)
     })
-        .then(account => dispatch({
+        .then(response => dispatch({
             type: UPDATE_ACCOUNT,
-            payload: account
+            payload: account,
+            response
         }))
-    window.location.href = "http://localhost:3000";
 
 }

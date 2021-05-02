@@ -44,7 +44,7 @@ const AccountItem = (props) => {
                                 // eslint-disable-next-line no-restricted-globals
                                 let c = confirm('Would you like to permanently delete this account?');
                                 if (c === true)
-                                    props.deleteAccount(props.account.id)
+                                    props.deleteAccount(props.accounts, props.account.id)
                             }}
                         />
                     </div>
@@ -72,7 +72,9 @@ const AccountItem = (props) => {
                     </p>
                     {expand && <DepositWithdraw account={props.account} /> }
                     <Link className="card-link"
-                          to="./VariableAccount">
+                          to={{pathname:`UserAccount/${props.account.id}`,
+                              state: {account: props.account}}}
+                            account={props.account} >
                         View Account <FaArrowRight/>
                     </Link>
                 </div>

@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Header from './Header/Header'
 import Accounts from './Accounts';
 import Transactions from "./Transactions";
-import VariableAccount from "./UserAccount";
+import UserAccount from "./UserAccount";
 
 import store from "../store";
 
@@ -22,7 +22,7 @@ const App = () => {
                                 <Accounts /> } />
                             <Route path="/Transactions" render={ () =>
                                 <Transactions /> } />
-                            <Route path="/Accounts/:id" component={VariableAccount} />
+                            <Route path="/UserAccount/:id" component={UserAccount} />
                         </div>
                     </Container>
                 </BrowserRouter>

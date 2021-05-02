@@ -6,6 +6,7 @@ const DEFAULT_STATE = {
 }
 
 export default function (state = DEFAULT_STATE, action) {
+
     switch(action.type){
         case FETCH_ACCOUNT:
             return {
@@ -13,9 +14,12 @@ export default function (state = DEFAULT_STATE, action) {
                 accounts: action.payload
             }
         case ADD_ACCOUNT:
+            const addAccounts = state.accounts.map( account => {
+                return (account.id !== action.payload.id) ? account : action.payload;
+            })
             return {
                 ...state,
-                accounts: state.accounts.unshift(action.payload),
+                addAccounts
 
             }
         case DELETE_ACCOUNT:
@@ -24,9 +28,12 @@ export default function (state = DEFAULT_STATE, action) {
             accounts: action.payload
         }
         case UPDATE_ACCOUNT:
+            const updateAccounts = state.accounts.map( account => {
+                return (account.id !== action.payload.id) ? account : action.payload;
+            })
             return {
                 ...state,
-                accounts: action.payload
+                updateAccounts
             }
         default:
             return state;

@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, ADD_TRANSACTION, ADD_ACCOUNT } from "../actions/types";
+import { FETCH_TRANSACTIONS, ADD_TRANSACTION, UPDATE_ACCOUNT, ADD_ACCOUNT } from "../actions/types";
 
 const DEFAULT_STATE = {
     transactions: [],
@@ -12,11 +12,20 @@ export default function (state = DEFAULT_STATE, action) {
                 ...state,
                 transactions: action.payload
             }
-        case ADD_ACCOUNT:
+        case UPDATE_ACCOUNT:
+            const transaction = state.transactions.map( () => {
+                return action.payload
+            })
             return {
                 ...state,
-                transactions: state.transactions.unshift(action.payload)
+                transaction
+
             }
+        // case ADD_ACCOUNT:
+        //     return {
+        //         ...state,
+        //         transactions: state.transactions.unshift(action.payload)
+        //     }
         default:
             return state;
     }

@@ -24,6 +24,7 @@ const EditModal = (props) => {
 
         setName('')
         setDeposit('')
+
     }
 
     return (

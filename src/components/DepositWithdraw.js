@@ -35,7 +35,15 @@ const DepositWithdraw = (props) => {
                                        balance: (parseFloat(props.account.balance) - parseFloat(amount)).toFixed(2)
                                    }
 
+                                   const transaction = {
+                                       account_id: props.account.id,
+                                       amount: parseFloat(amount).toFixed(2),
+                                       date: Date().toLocaleString(),
+                                       type: "withdrawal"
+                                   }
+
                                    props.updateAccount(account);
+                                   props.addTransaction(transaction)
 
                                    setAmount('')
                                }
@@ -56,7 +64,16 @@ const DepositWithdraw = (props) => {
                                        balance: (parseFloat(props.account.balance) + parseFloat(amount)).toFixed(2)
                                    }
 
+                                   const transaction = {
+                                       account_id: props.account.id,
+                                       amount: parseFloat(amount).toFixed(2),
+                                       date: Date.now(),
+                                       type: "deposit"
+                                   }
+
+
                                    props.updateAccount(account);
+                                   props.addTransaction(transaction)
 
                                    setAmount('')
                                }
@@ -72,4 +89,4 @@ const DepositWithdraw = (props) => {
 }
 
 
-export default connect(null, { updateAccount })(DepositWithdraw);
+export default connect(null, { updateAccount, addTransaction })(DepositWithdraw);

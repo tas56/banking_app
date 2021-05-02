@@ -12,18 +12,30 @@ const Transactions = (props) => {
     }, [ ]);
 
     const transactionItems = props.transactions.map(transaction => (
-            <li className="list-group-item list-group-item-action">
-               Transaction ID: {transaction.id} |
-                Amount: {parseFloat(transaction.amount).toFixed(2)}
-            </li>
+            <tr>
+                <th scope="row">{transaction.id}</th>
+                <td>{parseFloat(transaction.amount).toFixed(2)}</td>
+                <td>{transaction.account_id}</td>
+                <td>{transaction.type}</td>
+            </tr>
     ))
 
     return (
         <div>
             <h1>Transactions</h1>
-            <ul className="list-group">
+            <table className="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Account ID</th>
+                    <th scope="col">Type</th>
+                </tr>
+                </thead>
+                <tbody>
                 {transactionItems}
-            </ul>
+                </tbody>
+            </table>
         </div>
     )
 

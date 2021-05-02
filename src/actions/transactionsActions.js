@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, ADD_TRANSACTION } from "./types";
+import { FETCH_TRANSACTIONS, UPDATE_ACCOUNT, ADD_TRANSACTION } from "./types";
 
 export const fetchTransactions = () => (dispatch) => {
     fetch('http://localhost:5002/transactions')
@@ -17,8 +17,9 @@ export const addTransaction = (transaction) => (dispatch) => {
             'content-type': 'application/json'
         },
         body: JSON.stringify(transaction)
-    }).then(transaction => dispatch({
-        type: ADD_TRANSACTION,
-        payload: transaction
+    }).then(response => dispatch({
+        type: UPDATE_ACCOUNT,
+        payload: transaction,
+        response
     }))
 }
