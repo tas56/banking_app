@@ -3,7 +3,7 @@
     {
       "id": 15,
       "name": "Jake",
-      "balance": "-137.00"
+      "balance": "63.00"
     },
     {
       "id": 16,
@@ -18,17 +18,17 @@
     {
       "id": 18,
       "name": "Jake",
-      "balance": "200.00"
+      "balance": "900.00"
     },
     {
+      "id": 19,
       "name": "Thomas Semiz",
-      "balance": "300",
-      "id": 19
+      "balance": "-3800.00"
     },
     {
+      "id": 20,
       "name": "Rachel Galluccio",
-      "balance": "500",
-      "id": 20
+      "balance": "-200.00"
     },
     {
       "name": "Thomas",
@@ -78,6 +78,41 @@
       "date": "Sun May 02 2021 18:31:04 GMT-0400 (Eastern Daylight Time)",
       "type": "withdrawal",
       "id": 6
+    },
+    {
+      "account_id": 18,
+      "amount": "700.00",
+      "date": 1619994888316,
+      "type": "deposit",
+      "id": 7
+    },
+    {
+      "account_id": 19,
+      "amount": "900.00",
+      "date": 1619994915867,
+      "type": "deposit",
+      "id": 8
+    },
+    {
+      "account_id": 20,
+      "amount": "700.00",
+      "date": "Sun May 02 2021 18:35:24 GMT-0400 (Eastern Daylight Time)",
+      "type": "withdrawal",
+      "id": 9
+    },
+    {
+      "account_id": 19,
+      "amount": "5000.00",
+      "date": "Sun May 02 2021 20:55:26 GMT-0400 (Eastern Daylight Time)",
+      "type": "withdrawal",
+      "id": 10
+    },
+    {
+      "account_id": 15,
+      "amount": "200.00",
+      "date": 1620005652469,
+      "type": "deposit",
+      "id": 11
     }
   ]
 }
