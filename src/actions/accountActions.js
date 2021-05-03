@@ -2,7 +2,7 @@ import { ADD_ACCOUNT, FETCH_ACCOUNT, DELETE_ACCOUNT, UPDATE_ACCOUNT } from "./ty
 
 export const fetchAccounts = () => (dispatch) => {
 
-    fetch('http://localhost:5002/accounts')
+    fetch('http://localhost:8000/api/v1/accounts')
         .then(res => res.json())
         .then(accounts => dispatch({
             type: FETCH_ACCOUNT,
@@ -13,7 +13,7 @@ export const fetchAccounts = () => (dispatch) => {
 
 export const addAccount = (account) => (dispatch) => {
 
-    fetch('http://localhost:5002/accounts', {
+    fetch('http://localhost:8000/api/v1/accounts', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -29,7 +29,7 @@ export const addAccount = (account) => (dispatch) => {
 
 export const deleteAccount = (accounts, accountID) => (dispatch) => {
 
-    fetch(`http://localhost:5002/accounts/${accountID}`, {
+    fetch(`http://localhost:8000/api/v1/accounts/${accountID}`, {
         method: 'DELETE'
     })
         .then(response => dispatch({
@@ -42,7 +42,7 @@ export const deleteAccount = (accounts, accountID) => (dispatch) => {
 
 export const updateAccount = (account) => (dispatch) => {
 
-    fetch(`http://localhost:5002/accounts/${account.id}`, {
+    fetch(`http://localhost:8000/api/v1/accounts/${account.id}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
