@@ -8,7 +8,7 @@ exports.findAll = function(req, res) {
         if (err)
             res.send(err);
         console.log('res', transactions);
-        res.json({ "data": transactions});
+        res.json(transactions);
     });
 };
 
@@ -42,7 +42,7 @@ exports.update = function(req, res) {
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
-        Transaction.update(req.params.id, new Account(req.body), function(err, account) {
+        Transaction.update(req.params.id, new Transaction(req.body), function(err, account) {
             if (err)
                 res.send(err);
             res.json({ error:false, message: 'Transaction successfully updated' });

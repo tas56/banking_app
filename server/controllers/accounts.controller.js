@@ -8,7 +8,7 @@ exports.findAll = function(req, res) {
         if (err)
             res.send(err);
         console.log('res', accounts);
-        res.json({ "data": accounts});
+        res.json(accounts);
     });
 };
 
