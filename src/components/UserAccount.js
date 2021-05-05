@@ -40,6 +40,9 @@ const UserAccount = (props) => {
             <h1>User Account</h1>
             <h3>Account Name:</h3>
             <h2>{userAccount.username}</h2>
+            <h3>Account Balance:</h3>
+            <h2>{userAccount.balance}</h2>
+            <h3>Transactions</h3>
 
         </div>
     )
