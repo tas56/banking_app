@@ -7,7 +7,7 @@ const UserAccount = (props) => {
     const { id } = useParams();
 
     const userAccount = () => {
-       return  axios.get('http://localhost:5002/accounts')
+       return  axios.get('http://localhost:8000/api/v1/accounts')
             .then(res => { return res.data })
             .then( res => {
                 console.log(res)
@@ -25,8 +25,7 @@ const UserAccount = (props) => {
         <div>
             <h1>User Account</h1>
             <h3>Account Name:</h3>
-            <h2>{userAccount.name}</h2>
-            <DepositWithdraw />
+            <h2>{userAccount.username}</h2>
 
         </div>
     )

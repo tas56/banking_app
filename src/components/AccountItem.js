@@ -49,7 +49,7 @@ const AccountItem = (props) => {
                         />
                     </div>
                     <p className="card-title">Account Name: </p>
-                    <h5 className="card-title"><b>{props.account.name}</b></h5>
+                    <h5 className="card-title"><b>{props.account.username}</b></h5>
                     <div className="card-group ">
                         <p className="card-text">Balance:</p>
                         <h5 className={ props.account.balance >= 0 ?

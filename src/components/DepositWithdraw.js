@@ -31,14 +31,14 @@ const DepositWithdraw = (props) => {
 
                                    const account = {
                                        id: props.account.id,
-                                       name: props.account.name,
+                                       username: props.account.username,
                                        balance: (parseFloat(props.account.balance) - parseFloat(amount)).toFixed(2)
                                    }
 
                                    const transaction = {
                                        account_id: props.account.id,
                                        amount: parseFloat(amount).toFixed(2),
-                                       // transaction_date: Date().toLocaleString(),
+                                       transaction_date: Date().toLocaleString(),
                                        transaction_type: "withdrawal"
                                    }
 
@@ -60,14 +60,14 @@ const DepositWithdraw = (props) => {
 
                                    const account = {
                                        id: props.account.id,
-                                       name: props.account.name,
+                                       username: props.account.username,
                                        balance: (parseFloat(props.account.balance) + parseFloat(amount)).toFixed(2)
                                    }
 
                                    const transaction = {
                                        account_id: props.account.id,
                                        amount: parseFloat(amount).toFixed(2),
-                                      // transaction_date: Date().toLocaleString(),
+                                       transaction_date: Date().toLocaleString(),
                                        transaction_type: "deposit"
                                    }
 
