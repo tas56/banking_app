@@ -11,10 +11,12 @@ const Header = () => {
             </button>
             <a className="navbar-brand text-light" href="#">Banking Application</a>
 
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo03">
                 <Navigation />
-                <LoginButton />
-                <LogoutButton />
+                <div>
+                    <LoginButton />
+                    <LogoutButton />
+                </div>
             </div>
 
         </nav>
