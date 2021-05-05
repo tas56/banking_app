@@ -1,0 +1,30 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "username": "Thomas Semiz",
+      "balance": 900.00
+    },
+    {
+      "id": 2,
+      "username": "Rachel Gallucio",
+      "balance": "450"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "account_id": 1,
+      "amount": 900.00,
+      "transaction_date": "Wed May 05 2021 14:27:17 GMT-0400 (Eastern Daylight Time)",
+      "transaction_type": "deposit"
+    },
+    {
+      "id": 2,
+      "account_id": 2,
+      "amount": 450.00,
+      "transaction_date": "Wed May 05 2021 14:27:17 GMT-0400 (Eastern Daylight Time)",
+      "transaction_type": "deposit"
+    }
+  ]
+}
