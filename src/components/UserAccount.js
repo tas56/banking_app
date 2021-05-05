@@ -19,7 +19,21 @@ const UserAccount = (props) => {
 
     }
 
+    const userTransactions = () => {
+        return  axios.get('http://localhost:8000/api/v1/transactions')
+            .then(res => { return res.data })
+            .then( res => {
+                console.log(res)
+                const transactions = res.map(transaction => transaction.account_id === parseInt(id))
+                console.log(transactions);
+                return transactions;
+            }).catch(error => {
+                console.log(error) })
+
+    }
+
     console.log(userAccount)
+    console.log(userTransactions)
 
     return (
         <div>

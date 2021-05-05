@@ -11,7 +11,7 @@ const EditModal = (props) => {
 
     const onClick = () => {
 
-        let editName =  name !== '' ? name : props.account.usernamename;
+        let editName =  name !== '' ? name : props.account.username;
         let editBalance =  deposit !== '' ? deposit : props.account.balance;
 
         const account = {
@@ -36,7 +36,7 @@ const EditModal = (props) => {
                 <Modal.Body>
 
                     <div className={'form-group'}>
-                        <label>Current name: <b>{props.account.name}</b></label>
+                        <label>Current name: <b>{props.account.username}</b></label>
                         <input type={'text'}
                                placeholder={'Edit name...'}
                                value={name}
