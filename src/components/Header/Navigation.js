@@ -1,30 +1,33 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navigation = () => {
 
     const [currentPage,setCurrentPage] = useState('/');
+    const { user, isAuthenticated } = useAuth0();
 
     const onTabClick = (event, tabName) => {
         setCurrentPage({ currentPage: tabName })
     }
 
     return (
-        <ul className='nav page-tabs'>
-            <li className='nav-item'>
-                <Link className={"text-success nav-link"} to="/"
-                      onClick={event => onTabClick(event, '/')}>
-                    Accounts
-                </Link>
-            </li>
-            <li className='nav-item'>
-                <Link className={"text-success nav-link"} to="/Transactions"
-                      onClick={event => onTabClick(event, '/Transactions')}>
-                    Transactions
-                </Link>
-            </li>
-        </ul>
+        isAuthenticated && (
+            <ul className='nav page-tabs'>
+                <li className='nav-item'>
+                    <Link className={"text-success nav-link"} to="/"
+                          onClick={event => onTabClick(event, '/')}>
+                        Accounts
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link className={"text-success nav-link"} to="/Transactions"
+                          onClick={event => onTabClick(event, '/Transactions')}>
+                        Transactions
+                    </Link>
+                </li>
+            </ul>
+        )
     )
 
 }

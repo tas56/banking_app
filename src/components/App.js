@@ -6,10 +6,15 @@ import Header from './Header/Header'
 import Accounts from './Accounts';
 import Transactions from "./Transactions";
 import UserAccount from "./UserAccount";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import store from "../store";
 
 const App = () => {
+
+    const {isLoading, isAuthenticated } = useAuth0();
+
+    if(isLoading) return <div>Loading...</div>
 
     return (
         <Provider store={store}>
