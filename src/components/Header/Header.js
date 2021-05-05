@@ -1,4 +1,6 @@
 import Navigation from "./Navigation";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
     return (
@@ -11,6 +13,8 @@ const Header = () => {
 
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <Navigation />
+                <LoginButton />
+                <LogoutButton />
             </div>
 
         </nav>
