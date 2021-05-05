@@ -19,7 +19,8 @@ const Transactions = (props) => {
                 <th scope="row">{transaction.id}</th>
                 <td>{parseFloat(transaction.amount).toFixed(2)}</td>
                 <td>{transaction.account_id}</td>
-                <td>{transaction.type}</td>
+                <td>{transaction.transaction_type}</td>
+                <td>{transaction.transaction_date}</td>
             </tr>
     ))
 
@@ -35,6 +36,7 @@ const Transactions = (props) => {
                         <th scope="col">Amount</th>
                         <th scope="col">Account ID</th>
                         <th scope="col">Type</th>
+                        <th scope="col">Date</th>
                     </tr>
                     </thead>
                     <tbody>

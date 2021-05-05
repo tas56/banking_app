@@ -13,7 +13,7 @@ const AddAccount = (props) => {
         e.preventDefault();
 
         const account = {
-            name: name,
+            username: name,
             balance: deposit
         }
 

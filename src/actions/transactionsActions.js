@@ -1,7 +1,7 @@
 import { FETCH_TRANSACTIONS, UPDATE_ACCOUNT, ADD_TRANSACTION } from "./types";
 
 export const fetchTransactions = () => (dispatch) => {
-    fetch('http://localhost:5002/transactions')
+    fetch('http://localhost:8000/api/v1/transactions')
         .then(res => res.json())
         .then(transactions => dispatch({
             type: FETCH_TRANSACTIONS,
@@ -11,7 +11,7 @@ export const fetchTransactions = () => (dispatch) => {
 }
 
 export const addTransaction = (transaction) => (dispatch) => {
-    fetch('http://localhost:5002/transactions', {
+    fetch('http://localhost:8000/api/v1/transactions', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
