@@ -1,39 +1,39 @@
 'use strict';
 
-const Account = require('../models/account.model');
+const Transaction = require('../models/transaction.model');
 
 exports.findAll = function(req, res) {
-    Account.findAll(function(err, accounts) {
+    Transaction.findAll(function(err, transactions) {
         console.log('controller')
         if (err)
             res.send(err);
-        console.log('res', accounts);
-        res.json({ "data": accounts});
+        console.log('res', transactions);
+        res.json({ "data": transactions});
     });
 };
 
 
 exports.create = function(req, res) {
-    const new_account = new Account(req.body);
+    const new_account = new Transaction(req.body);
 
     //handles null error
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
-        Account.create(new_account, function(err, account) {
+        Transaction.create(new_account, function(err, transaction) {
             if (err)
                 res.send(err);
-            res.json({error:false,message:"Account added successfully!",data:account});
+            res.json({error:false,message:"Transaction added successfully!",data:transaction});
         });
     }
 };
 
 
 exports.findById = function(req, res) {
-    Account.findById(req.params.id, function(err, account) {
+    Transaction.findById(req.params.id, function(err, transaction) {
         if (err)
             res.send(err);
-        res.json(account);
+        res.json(transaction);
     });
 };
 
@@ -42,10 +42,10 @@ exports.update = function(req, res) {
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
-        Account.update(req.params.id, new Account(req.body), function(err, account) {
+        Transaction.update(req.params.id, new Account(req.body), function(err, account) {
             if (err)
                 res.send(err);
-            res.json({ error:false, message: 'Account successfully updated' });
+            res.json({ error:false, message: 'Transaction successfully updated' });
         });
     }
 
@@ -53,9 +53,9 @@ exports.update = function(req, res) {
 
 
 exports.delete = function(req, res) {
-    Account.delete( req.params.id, function(err, account) {
+    Transaction.delete( req.params.id, function(err, account) {
         if (err)
             res.send(err);
-        res.json({ error:false, message: 'Account successfully deleted' });
+        res.json({ error:false, message: 'Transaction successfully deleted' });
     });
 };
