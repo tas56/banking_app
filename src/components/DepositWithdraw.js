@@ -38,8 +38,8 @@ const DepositWithdraw = (props) => {
                                    const transaction = {
                                        account_id: props.account.id,
                                        amount: parseFloat(amount).toFixed(2),
-                                       date: Date().toLocaleString(),
-                                       type: "withdrawal"
+                                       // transaction_date: Date().toLocaleString(),
+                                       transaction_type: "withdrawal"
                                    }
 
                                    props.updateAccount(account);
@@ -67,10 +67,9 @@ const DepositWithdraw = (props) => {
                                    const transaction = {
                                        account_id: props.account.id,
                                        amount: parseFloat(amount).toFixed(2),
-                                       date: Date.now(),
-                                       type: "deposit"
+                                      // transaction_date: Date().toLocaleString(),
+                                       transaction_type: "deposit"
                                    }
-
 
                                    props.updateAccount(account);
                                    props.addTransaction(transaction)

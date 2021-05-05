@@ -19,7 +19,7 @@ const Transactions = (props) => {
                 <th scope="row">{transaction.id}</th>
                 <td>{parseFloat(transaction.amount).toFixed(2)}</td>
                 <td>{transaction.account_id}</td>
-                <td>{transaction.type}</td>
+                <td>{transaction.transaction_type}</td>
             </tr>
     ))
 
