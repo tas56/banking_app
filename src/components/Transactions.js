@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { connect, useDispatch } from "react-redux";
+import { useAuth0 } from '@auth0/auth0-react'
 
 import { fetchTransactions } from "../actions/transactionsActions";
 
 const Transactions = (props) => {
+
+    const { isAuthenticated } = useAuth0();
 
     useEffect(() => {
 
@@ -21,22 +24,25 @@ const Transactions = (props) => {
     ))
 
     return (
-        <div>
-            <h1>Transactions</h1>
-            <table className="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Account ID</th>
-                    <th scope="col">Type</th>
-                </tr>
-                </thead>
-                <tbody>
-                {transactionItems}
-                </tbody>
-            </table>
-        </div>
+        isAuthenticated && (
+
+            <div>
+                <h1>Transactions</h1>
+                <table className="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Account ID</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {transactionItems}
+                    </tbody>
+                </table>
+            </div>
+        )
     )
 
 }
