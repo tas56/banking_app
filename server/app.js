@@ -21,11 +21,14 @@ app.use(bodyParser.json())
 
 // define a root route
 
-// Require accounts routes
-const accountsRoutes = require('./routes/accounts.routes')
+// Require routes
+const accountsRoutes = require('./routes/accounts.routes');
+const transactionsRoutes = require('./routes/transactions.routes');
+
 
 // using as middleware
 app.use('/api/v1/accounts', accountsRoutes)
+app.use('/api/v1/transactions', transactionsRoutes)
 
 app.set('port', process.env.PORT || 8000);
 app.set('ip', process.env.NODEJS_IP || '127.0.0.1');
