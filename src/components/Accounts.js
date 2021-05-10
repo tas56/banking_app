@@ -17,10 +17,10 @@ const Accounts = (props) => {
 
         props.fetchAccounts();
 
-    }, [ ]);
+    }, [ props ]);
 
     const accountItems = props.accounts.map( (account) => {
-       return <AccountItem account={account} />
+       return <AccountItem account={account} key={account.id} />
     });
 
     return (

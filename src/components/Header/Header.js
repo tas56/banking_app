@@ -13,10 +13,10 @@ const Header = () => {
 
             <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo03">
                 <Navigation />
-                <div>
-                    <LoginButton />
-                    <LogoutButton />
-                </div>
+            </div>
+            <div>
+                <LoginButton />
+                <LogoutButton />
             </div>
 
         </nav>

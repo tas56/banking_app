@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, ADD_TRANSACTION, UPDATE_ACCOUNT, ADD_ACCOUNT } from "../actions/types";
+import { FETCH_TRANSACTIONS,  UPDATE_ACCOUNT } from "../actions/types";
 
 const DEFAULT_STATE = {
     transactions: [],

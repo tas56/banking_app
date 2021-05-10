@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, UPDATE_ACCOUNT, ADD_TRANSACTION } from "./types";
+import { FETCH_TRANSACTIONS, UPDATE_ACCOUNT } from "./types";
 
 export const fetchTransactions = () => (dispatch) => {
     fetch('http://localhost:8000/api/v1/transactions')

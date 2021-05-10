@@ -1,5 +1,4 @@
 import {  useParams } from "react-router-dom";
-import DepositWithdraw from "./DepositWithdraw";
 import axios from "axios";
 
 const UserAccount = (props) => {

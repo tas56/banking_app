@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { connect, useDispatch } from "react-redux";
+import {  useEffect } from 'react';
+import { connect } from "react-redux";
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { fetchTransactions } from "../actions/transactionsActions";
@@ -12,10 +12,10 @@ const Transactions = (props) => {
 
         props.fetchTransactions();
 
-    }, [ ]);
+    }, [  ]);
 
     const transactionItems = props.transactions.map(transaction => (
-            <tr>
+            <tr key={transaction.id}>
                 <th scope="row">{transaction.id}</th>
                 <td>{parseFloat(transaction.amount).toFixed(2)}</td>
                 <td>{transaction.account_id}</td>

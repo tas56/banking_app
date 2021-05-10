@@ -22,8 +22,8 @@ const EditModal = (props) => {
 
         props.updateAccount(account);
 
-        setName('')
-        setDeposit('')
+        setName('');
+        setDeposit('');
 
     }
 

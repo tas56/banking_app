@@ -5,8 +5,8 @@ import { addTransaction } from "../actions/transactionsActions";
 
 const AddAccount = (props) => {
 
-    const [name, setName] = useState('')
-    const [deposit, setDeposit] = useState('')
+    const [name, setName] = useState('');
+    const [deposit, setDeposit] = useState('');
 
 
     const onSubmit = (e) => {
@@ -17,8 +17,15 @@ const AddAccount = (props) => {
             balance: deposit
         }
 
+        const transaction = {
+            account_id: null,
+            amount: deposit,
+            transaction_date: Date().toLocaleString(),
+            transaction_type: "deposit"
+        }
+
         props.addAccount(account);
-        props.addTransaction(account)
+        props.addTransaction(transaction)
 
         setName('')
         setDeposit('')
