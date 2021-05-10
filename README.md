@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Banking application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About this repository
 
-## Available Scripts
+This is a full-stack banking application. This application is built in React/Redux (with Bootstrap) for the front-end with a Node.js API that connects to a MySql database. 
+This application allows a user to Add, Edit, and Delete Accounts, as well as adjust their balance. Keeping a log of all changes to the account balance with a separate transactions table. This application also has user signup / login using Auth0 and has an API that uses JWT to authorize API requests.
 
-In the project directory, you can run:
+## How to run this project
 
-### `npm start`
+### Step 1. Clone repository `git clone https://github.com/tas56/banking_app/`
 
-Runs the app in the development mode.\
+Then, in the project directory, you can run:
+
+### Step 2. Run docker `docker-compose up`
+
+Builds the database in a docker container environment.<br/><br/>
+If docker is not available on your machine you can instead run `npm run server`, this script will start a local JSON server which is available for testing. (if running JSON server, skip step 3). If you do this you will have to navigate to the _accountActions.js_ and _transactionActions.js_ and change the API calls to http://localhost:8000/ _(accounts or transactions)_
+
+### Step 3. Start server `npm run dev`
+
+Runs the server to create connections to the SQL database/API
+
+### Step 4. Start UI `npm run start`
+
+Runs the UI in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+## Branches
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### master
 
-### `npm run build`
+This is the branch has all of the implementation for the React UI and a merge of all other branches
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### server
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Node.js server/API implementation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Auth0
 
-### `npm run eject`
+Auth0 implementation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### JWT
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+JWT implementation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Screenshots
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## UI
 
-## Learn More
+### Auth0
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Create
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Retrieve
 
-### Code Splitting
+### Edit/Update
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Delete
 
-### Analyzing the Bundle Size
+## Postman
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Auth0
 
-### Making a Progressive Web App
+### Create
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Retrieve
 
-### Advanced Configuration
+### Edit/Update
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Delete
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
