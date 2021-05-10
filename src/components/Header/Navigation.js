@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Navigation = () => {
 
-    const [setCurrentPage] = useState('/');
+    const [currentPage,setCurrentPage] = useState('/');
     const { isAuthenticated } = useAuth0();
 
     const onTabClick = (event, tabName) => {

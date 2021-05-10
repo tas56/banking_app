@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import {FaMinus, FaPlus } from "react-icons/all";
+import { useAuth0 } from '@auth0/auth0-react'
 
 import { fetchAccounts } from "../actions/accountActions";
 import AddAccount from "./AddAccount";
 import AccountItem from "./AccountItem";
-import { useAuth0 } from '@auth0/auth0-react'
+
 
 
 const Accounts = (props) => {
@@ -13,7 +14,7 @@ const Accounts = (props) => {
     const [expand, setExpand] = useState(false);
     const { isAuthenticated } = useAuth0();
 
-    useEffect(() => {
+    useEffect(( ) => {
 
         props.fetchAccounts();
 

@@ -1,38 +1,28 @@
 import {  useParams } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import {connect} from "react-redux";
+import {fetchAccounts} from "../actions/accountActions";
 
 const UserAccount = (props) => {
 
+    const [accounts,setAccounts] = useState([]);
+    const [transactions,setTransactions] = useState([]);
     const { id } = useParams();
 
-    const userAccount = () => {
-       return  axios.get('http://localhost:8000/api/v1/accounts')
-            .then(res => { return res.data })
-            .then( res => {
-                console.log(res)
-                const account = res.find(account => account.id === parseInt(id))
-                console.log(account);
-                return account;
-            }).catch(error => {
-            console.log(error) })
 
-    }
+    useEffect( () => {
+       props.fetchAccounts()
+    });
 
-    const userTransactions = () => {
-        return  axios.get('http://localhost:8000/api/v1/transactions')
-            .then(res => { return res.data })
-            .then( res => {
-                console.log(res)
-                const transactions = res.map(transaction => transaction.account_id === parseInt(id))
-                console.log(transactions);
-                return transactions;
-            }).catch(error => {
-                console.log(error) })
+    console.log(props.accounts)
 
-    }
 
+   const userAccount = props.accounts.find(account => account.id === parseInt(id));
     console.log(userAccount)
-    console.log(userTransactions)
+
+    const userTransactions = transactions.map(transaction => transaction.account_id === parseInt(id));
+    console.log(userTransactions);
 
     return (
         <div>
@@ -40,7 +30,7 @@ const UserAccount = (props) => {
             <h3>Account Name:</h3>
             <h2>{userAccount.username}</h2>
             <h3>Account Balance:</h3>
-            <h2>{userAccount.balance}</h2>
+            <h2>${userAccount.balance}</h2>
             <h3>Transactions</h3>
 
         </div>
@@ -49,4 +39,4 @@ const UserAccount = (props) => {
 }
 
 
-export default UserAccount
+export default connect(null, { fetchAccounts })(UserAccount);
