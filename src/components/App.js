@@ -2,8 +2,8 @@ import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 
-import Header from './Header/Header';
-import ProtectedRoute from "../auth/ProtectedRoute";
+import Header from './header/Header';
+import ProtectedRoute from "./auth/ProtectedRoute";
 import Home from "./views/Home";
 import Accounts from './views/Accounts';
 import Transactions from "./views/Transactions";
