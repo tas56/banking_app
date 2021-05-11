@@ -2,7 +2,7 @@ import {  useEffect } from 'react';
 import { connect } from "react-redux";
 import { useAuth0 } from '@auth0/auth0-react'
 
-import { fetchTransactions } from "../actions/transactionsActions";
+import { fetchTransactions } from "../../actions/transactionsActions";
 
 const Transactions = (props) => {
 

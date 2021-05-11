@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 
-import { fetchAccounts } from "../actions/accountActions";
-import { fetchTransactions } from "../actions/transactionsActions";
+import { fetchAccounts } from "../../actions/accountActions";
+import { fetchTransactions } from "../../actions/transactionsActions";
 
 const UserAccount = (props) => {
 
