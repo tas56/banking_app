@@ -1,7 +1,5 @@
 import Navigation from "./Navigation";
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
-
+import AuthenticationButton from "./AuthenticationButton";
 const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-dark mb-3">
@@ -15,8 +13,7 @@ const Header = () => {
                 <Navigation />
             </div>
             <div>
-                <LoginButton />
-                <LogoutButton />
+                <AuthenticationButton />
             </div>
 
         </nav>
