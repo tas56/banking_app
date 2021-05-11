@@ -15,8 +15,8 @@ const Navigation = () => {
         isAuthenticated && (
             <ul className='nav page-tabs'>
                 <li className='nav-item'>
-                    <Link className={"text-success nav-link"} to="/"
-                          onClick={event => onTabClick(event, '/')}>
+                    <Link className={"text-success nav-link"} to="/Accounts"
+                          onClick={event => onTabClick(event, '/Accounts')}>
                         Accounts
                     </Link>
                 </li>

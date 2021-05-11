@@ -1,8 +1,10 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 
-import Header from './Header/Header'
+import Header from './Header/Header';
+import ProtectedRoute from "../auth/ProtectedRoute";
+import Home from "./Home";
 import Accounts from './Accounts';
 import Transactions from "./Transactions";
 import UserAccount from "./UserAccount";
@@ -19,18 +21,15 @@ const App = () => {
     return (
         <Provider store={store}>
             <div>
-                <BrowserRouter>
-                    <Header />
-                    <Container>
-                        <div>
-                            <Route path="/" exact render={ () =>
-                                <Accounts /> } />
-                            <Route path="/Transactions" render={ () =>
-                                <Transactions /> } />
-                            <Route path="/UserAccount/:id" component={UserAccount} />
-                        </div>
-                    </Container>
-                </BrowserRouter>
+                <Header />
+                <Container>
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <ProtectedRoute path="/Accounts" component={Accounts} />
+                        <ProtectedRoute path="/Transactions" component={Transactions} />
+                        <ProtectedRoute path="/UserAccount/:id" component={UserAccount} />
+                    </Switch>
+                </Container>
             </div>
         </Provider>
     )
