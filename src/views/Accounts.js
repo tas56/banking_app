@@ -4,8 +4,8 @@ import {FaMinus, FaPlus } from "react-icons/all";
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { fetchAccounts } from "../actions/accountActions";
-import AddAccount from "./AddAccount";
-import AccountItem from "./AccountItem";
+import AddAccount from "../components/AddAccount";
+import AccountItem from "../components/AccountItem";
 
 
 

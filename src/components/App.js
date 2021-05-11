@@ -4,10 +4,10 @@ import Container from 'react-bootstrap/Container';
 
 import Header from './Header/Header';
 import ProtectedRoute from "../auth/ProtectedRoute";
-import Home from "./Home";
-import Accounts from './Accounts';
-import Transactions from "./Transactions";
-import UserAccount from "./UserAccount";
+import Home from "../views/Home";
+import Accounts from '../views/Accounts';
+import Transactions from "../views/Transactions";
+import UserAccount from "../views/UserAccount";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import store from "../store";

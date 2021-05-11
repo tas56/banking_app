@@ -1,8 +1,9 @@
 import {  useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {connect} from "react-redux";
-import {fetchAccounts} from "../actions/accountActions";
+import { connect } from "react-redux";
+import { fetchAccounts } from "../actions/accountActions";
+import { fetchTransactions } from "../actions/transactionsActions";
 
 const UserAccount = (props) => {
 
@@ -12,7 +13,8 @@ const UserAccount = (props) => {
 
 
     useEffect( () => {
-       props.fetchAccounts()
+        props.fetchAccounts()
+        props.fetchTransactions()
     });
 
     console.log(props.accounts)
@@ -21,7 +23,7 @@ const UserAccount = (props) => {
    const userAccount = props.accounts.find(account => account.id === parseInt(id));
     console.log(userAccount)
 
-    const userTransactions = transactions.map(transaction => transaction.account_id === parseInt(id));
+    const userTransactions = props.transactions.map(transaction => transaction.account_id === parseInt(id));
     console.log(userTransactions);
 
     return (
@@ -39,4 +41,4 @@ const UserAccount = (props) => {
 }
 
 
-export default connect(null, { fetchAccounts })(UserAccount);
+export default connect(null, { fetchAccounts, fetchTransactions })(UserAccount);
