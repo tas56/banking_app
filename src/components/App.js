@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 
@@ -21,17 +21,15 @@ const App = () => {
     return (
         <Provider store={store}>
             <div>
-                <BrowserRouter>
-                    <Header />
-                    <Container>
-                        <div>
-                            <Route path="/" exact component={Home} />
-                            <ProtectedRoute path="/Accounts" component={Accounts} />
-                            <ProtectedRoute path="/Transactions" component={Transactions} />
-                            <ProtectedRoute path="/UserAccount/:id" component={UserAccount} />
-                        </div>
-                    </Container>
-                </BrowserRouter>
+                <Header />
+                <Container>
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <ProtectedRoute path="/Accounts" component={Accounts} />
+                        <ProtectedRoute path="/Transactions" component={Transactions} />
+                        <ProtectedRoute path="/UserAccount/:id" component={UserAccount} />
+                    </Switch>
+                </Container>
             </div>
         </Provider>
     )
